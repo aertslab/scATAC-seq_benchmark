@@ -2,7 +2,7 @@
 These are all the Jupyter notebooks and scripts that were used to analyse data and generate figures for our paper "Systematic benchmarking of scATAC-seq protocols" (De Rop et al., 2023). With these scripts, you should be able to reproduce everything found in our manuscript.
 
 ## Directory structure
-Below, you can find the structure of the root directory, with descriptions of each subdirectory.
+Here you can find the structure of the root directory, with descriptions of each subdirectory.
 ```
 scATAC-seq_benchmark
 ├── 0_resources # all resources used (generic scripts, specific region sets, ...). Some files, such as SCREEN peak sets, or reference genomes, are too large for github, please contact us if you want to request these.
@@ -32,7 +32,7 @@ scATAC-seq_benchmark
 └── public_downsample_series # downsampling analysis on public mouse cortex data
 ```
 # Reproducing manuscript figures
-Below, you can find where the code for each figure in the manuscript can be found:  
+Here you can find where the code for each figure in the manuscript can be found:  
 
 1b: `general/fixedcells_merged_graphs.ipynb`  
 1d: `general/scatterplots_bytech_kde_v2.py`  
