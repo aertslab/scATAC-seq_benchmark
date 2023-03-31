@@ -1,4 +1,4 @@
-# scATAC-seq_benchmark
+# scATAC-seq Benchmark
 These are all the Jupyter notebooks and scripts that were used to analyse data and generate figures for our paper "Systematic benchmarking of scATAC-seq protocols" (De Rop et al., 2023). With these scripts, you should be able to reproduce everything found in our manuscript.
 
 ## Directory structure
@@ -76,4 +76,4 @@ S15: `fixedcells_3_cistopic_consensus/1b_count_fragments_in_blacklist.ipynb`
 S16: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`
 
 Supplementary files:  
-Supplementary table with metadata: `general/fixedcells_general_statistics.ipynb`
+Supplementary table with quality control statistics: `general/fixedcells_general_statistics.ipynb`
