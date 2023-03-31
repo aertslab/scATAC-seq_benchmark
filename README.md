@@ -73,6 +73,7 @@ S12b: `public_downsample_series/5_analyse_qc.ipynb`
 S13a-b: `full_4_merged/8_lisi.ipynb`  
 S14: `1_data_repository/9_saturation_analysis.ipynb`  
 S15: `fixedcells_3_cistopic_consensus/1b_count_fragments_in_blacklist.ipynb`  
+S16: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`
 
 Supplementary files:  
 Supplementary table with metadata: `general/fixedcells_general_statistics.ipynb`
