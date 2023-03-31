@@ -2,6 +2,7 @@
 These are all the Jupyter notebooks and scripts that were used to analyse data and generate figures for our paper "Systematic benchmarking of scATAC-seq protocols" (De Rop et al., 2023). With these scripts, you should be able to reproduce everything found in our manuscript.
 
 ## Directory structure
+Below, you can find the structure of the root directory, with descriptions of each subdirectory.
 ```
 scATAC-seq_benchmark
 ├── 0_resources # all resources used (generic scripts, specific region sets, ...). Some files, such as SCREEN peak sets, or reference genomes, are too large for github, please contact us if you want to request these.
@@ -30,3 +31,44 @@ scATAC-seq_benchmark
 ├── public_4_cistopic_consensus # cisTopic pre-processing in consensus peaks and calling master consensus peaks
 └── public_downsample_series # downsampling analysis on public mouse cortex data
 ```
+# Reproducing manuscript figures
+Below, you can find where the code for each figure in the manuscript can be found:
+1b: fderop/data/99999999_scatac_benchmark/general/fixedcells_merged_graphs.ipynb
+1d: fderop/data/99999999_scatac_benchmark/general/scatterplots_bytech_kde_v2.py
+1e-h: fderop/data/99999999_scatac_benchmark/general/fixedcells_boxplots.ipynb
+1i-m: fderop/data/99999999_scatac_benchmark/fixedcells_downsample_series/4c_qc_plots.ipynb
+2a-e: fderop/data/99999999_scatac_benchmark/general/fixedcells_general_statistics_scatterplots.ipynb
+2f-i: fderop/data/99999999_scatac_benchmark/general/fixedcells_boxplots.ipynb
+2j: fderop/data/99999999_scatac_benchmark/fixedcells_5_cell_downsampling/5b_DAR_scores.ipynb
+2k-l:fderop/data/99999999_scatac_benchmark/fixedcells_8_individual_tech_cistopic_objects/4b_dar_scores.ipynb
+2m: fderop/data/99999999_scatac_benchmark/fixedcells_7_merged_equalcells_celltypefair/4c_dar_traces.ipynb
+2n-o: fderop/data/99999999_scatac_benchmark/fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_samples.ipynb
+3a: fderop/data/99999999_scatac_benchmark/fixedcells_8_individual_tech_cistopic_objects/8b_cistarget_analysis.ipynb
+3b-c: fderop/data/99999999_scatac_benchmark/general/fixedcells_general_statistics_scatterplots.ipynb
+3d-e: fderop/data/99999999_scatac_benchmark/fixedcells_9_individual_malefemale_celltypefair/5a_analyse_malefemale.ipynb
+3f: fderop/data/99999999_scatac_benchmark/fixedcells_9_individual_malefemale_celltypefair/7b_male_female_tracks.ipynb
+3g: fderop/data/99999999_scatac_benchmark/fixedcells_4_merged/5b_LISI.ipynb
+3i: fderop/data/99999999_scatac_benchmark/fixedcells_4_merged/5b_LISI.ipynb
+
+Supplementary files:
+S1a: fderop/data/99999999_scatac_benchmark/full_5_cellranger/2b_validation_graphs.ipynb
+S1b: fderop/data/99999999_scatac_benchmark/full_1_vsn_preprocessing/3_otsu_filtering.ipynb
+S2-S3: fderop/data/99999999_scatac_benchmark/full_3_cistopic_consensus/9_plot_all_qc.ipynb
+S4a-b: fderop/data/99999999_scatac_benchmark/fixedcells_cellranger_arc/2_cell_filtering.ipynb
+S4c: fderop/data/99999999_scatac_benchmark/fixedcells_cellranger_arc/3_venn.ipynb
+S5a-i: fderop/data/99999999_scatac_benchmark/general/fixedcells_general_statistics_gameshowell.ipynb
+S6: fderop/data/99999999_scatac_benchmark/fixedcells_3_cistopic_consensus/3b_cell_type_analysis.ipynb
+S7a: fderop/data/99999999_scatac_benchmark/fixedcells_downsample_series/5b_seurat_celltypes.ipynb
+S7b-c: fderop/data/99999999_scatac_benchmark/fixedcells_downsample_series/7b_DARs_analysis.ipynb
+S8a: fderop/data/99999999_scatac_benchmark/fixedcells_5_cell_downsampling/3_seurat_celltypes.ipynb
+S8b-c: fderop/data/99999999_scatac_benchmark/fixedcells_5_cell_downsampling/5b_DAR_scores.ipynb
+S9: fderop/data/99999999_scatac_benchmark/fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_samples.ipynb
+S10: fderop/data/99999999_scatac_benchmark/fixedcells_7_merged_equalcells_celltypefair/4d_dar_carrot.ipynb
+S11a: fderop/data/99999999_scatac_benchmark/fixedcells_2_cistopic/2b_analyse_freemuxlet.ipynb
+S11b: fderop/data/99999999_scatac_benchmark/fixedcells_3_cistopic_consensus/0_deteremine_male_vs_female.ipynb
+S11c: fderop/data/99999999_scatac_benchmark/fixedcells_2_cistopic/2b_analyse_freemuxlet.ipynb
+S12a: fderop/data/99999999_scatac_benchmark/public_4_cistopic_consensus/2_plot_all_qc.ipynb
+S12b: fderop/data/99999999_scatac_benchmark/public_downsample_series/5_analyse_qc.ipynb
+S13a-b: fderop/data/99999999_scatac_benchmark/full_4_merged/8_lisi.ipynb
+S14: fderop/data/99999999_scatac_benchmark/1_data_repository/9_saturation_analysis.ipynb
+S15: fderop/data/99999999_scatac_benchmark/fixedcells_3_cistopic_consensus/1b_count_fragments_in_blacklist.ipynb
