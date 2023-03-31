@@ -1,0 +1,11 @@
+*
+!./*
+!*.ipynb
+!*.config
+!.gitignore
+!*.sh
+!*.py
+!*.R
+!*.parallel
+!*.Rmd
+*checkpoint*

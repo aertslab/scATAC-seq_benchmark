@@ -1,1 +1,1 @@
-# scATAC-seq_benchmark
+# scATAC-seq benchmark
