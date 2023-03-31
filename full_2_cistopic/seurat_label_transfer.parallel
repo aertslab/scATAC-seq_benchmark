@@ -1,0 +1,51 @@
+#cell_type_classification/BIO_ddseq_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/BIO_ddseq_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/BIO_ddseq_3.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/BIO_ddseq_4.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/BRO_mtscatac_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/BRO_mtscatac_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xmultiome_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xmultiome_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv11_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv11_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv11_3.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv11_4.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv11_5.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv2_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv2_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_hydrop_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_hydrop_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_hydrop_3.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_mtscatac_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_mtscatac_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/EPF_hydrop_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/EPF_hydrop_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/EPF_hydrop_3.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/EPF_hydrop_4.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/HAR_ddseq_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/HAR_ddseq_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/MDC_mtscatac_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/MDC_mtscatac_2.FULL__cell_type_seurat.txt already exists!
+Rscript ../0_resources/scripts/seurat_label_transfer_consensus.R OHS_s3atac_1.FULL cell_region_looms/OHS_s3atac_1.FULL__cto.scrublet0-4.fmx.singlets.loom ../1_data_repository/full_fragments/OHS_s3atac_1.FULL.fragments.tsv.gz ../0_resources/seurat_references/pbmc_ref.rds ../0_resources/seurat_references/granges_annotation.rds cell_type_classification/OHS_s3atac_1.FULL__cell_type_seurat.txt
+Rscript ../0_resources/scripts/seurat_label_transfer_consensus.R OHS_s3atac_2.FULL cell_region_looms/OHS_s3atac_2.FULL__cto.scrublet0-4.fmx.singlets.loom ../1_data_repository/full_fragments/OHS_s3atac_2.FULL.fragments.tsv.gz ../0_resources/seurat_references/pbmc_ref.rds ../0_resources/seurat_references/granges_annotation.rds cell_type_classification/OHS_s3atac_2.FULL__cell_type_seurat.txt
+#cell_type_classification/SAN_10xmultiome_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/SAN_10xmultiome_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/STA_10xv11_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/STA_10xv11_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/TXG_10xv11_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/TXG_10xv2_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/TXG_10xv2_2.FULL__cell_type_seurat.txt already exists!
+Rscript ../0_resources/scripts/seurat_label_transfer_consensus.R UCS_ddseq_1.FULL cell_region_looms/UCS_ddseq_1.FULL__cto.scrublet0-4.fmx.singlets.loom ../1_data_repository/full_fragments/UCS_ddseq_1.FULL.fragments.tsv.gz ../0_resources/seurat_references/pbmc_ref.rds ../0_resources/seurat_references/granges_annotation.rds cell_type_classification/UCS_ddseq_1.FULL__cell_type_seurat.txt
+Rscript ../0_resources/scripts/seurat_label_transfer_consensus.R UCS_ddseq_2.FULL cell_region_looms/UCS_ddseq_2.FULL__cto.scrublet0-4.fmx.singlets.loom ../1_data_repository/full_fragments/UCS_ddseq_2.FULL.fragments.tsv.gz ../0_resources/seurat_references/pbmc_ref.rds ../0_resources/seurat_references/granges_annotation.rds cell_type_classification/UCS_ddseq_2.FULL__cell_type_seurat.txt
+#cell_type_classification/VIB_10xmultiome_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xmultiome_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xv1_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xv1_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xv2_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xv2_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_hydrop_1.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_hydrop_11.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_hydrop_12.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_hydrop_2.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_hydrop_21.FULL__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_hydrop_22.FULL__cell_type_seurat.txt already exists!

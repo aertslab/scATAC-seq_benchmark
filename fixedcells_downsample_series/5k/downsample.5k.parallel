@@ -1,0 +1,4 @@
+seqtk sample -s 111 ../10k/10k_fastq/UCS_ddseq_1__R1.10k.fastq.gz 0.5 | bgzip -@ 64 > 5k_fastq/UCS_ddseq_1__R1.5k.fastq.gz
+seqtk sample -s 111 ../10k/10k_fastq/UCS_ddseq_1__R2.10k.fastq.gz 0.5 | bgzip -@ 64 > 5k_fastq/UCS_ddseq_1__R2.5k.fastq.gz
+seqtk sample -s 111 ../10k/10k_fastq/UCS_ddseq_2__R1.10k.fastq.gz 0.5 | bgzip -@ 64 > 5k_fastq/UCS_ddseq_2__R1.5k.fastq.gz
+seqtk sample -s 111 ../10k/10k_fastq/UCS_ddseq_2__R2.10k.fastq.gz 0.5 | bgzip -@ 64 > 5k_fastq/UCS_ddseq_2__R2.5k.fastq.gz

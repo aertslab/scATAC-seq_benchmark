@@ -1,0 +1,14 @@
+*.pyc
+*.ipr
+*.iml
+*.db
+*.so
+cistargetx/common/orderstatistics.c
+cistargetx/web/reports/
+webserver/reports/
+compserver/results/
+cistargetx.egg-info/
+build/
+dist/
+testcases/
+.idea

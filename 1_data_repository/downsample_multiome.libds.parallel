@@ -1,0 +1,10 @@
+seqtk sample -s 111 full_fastq_scrna/VIB_10xmultiomerna_1__R1.FULL.fastq.gz 0.24288697901023001 | bgzip -@ 8 > libds_fastq_scrna/VIB_10xmultiomerna_1__R1.FULL.fastq.gz
+seqtk sample -s 111 full_fastq_scrna/VIB_10xmultiomerna_1__R2.FULL.fastq.gz 0.24288697901023001 | bgzip -@ 8 > libds_fastq_scrna/VIB_10xmultiomerna_1__R2.FULL.fastq.gz
+seqtk sample -s 111 full_fastq_scrna/CNA_10xmultiomerna_1__R1.FULL.fastq.gz 0.9907237340704238 | bgzip -@ 8 > libds_fastq_scrna/CNA_10xmultiomerna_1__R1.FULL.fastq.gz
+seqtk sample -s 111 full_fastq_scrna/CNA_10xmultiomerna_1__R2.FULL.fastq.gz 0.9907237340704238 | bgzip -@ 8 > libds_fastq_scrna/CNA_10xmultiomerna_1__R2.FULL.fastq.gz
+seqtk sample -s 111 full_fastq_scrna/VIB_10xmultiomerna_2__R1.FULL.fastq.gz 0.2828089820204866 | bgzip -@ 8 > libds_fastq_scrna/VIB_10xmultiomerna_2__R1.FULL.fastq.gz
+seqtk sample -s 111 full_fastq_scrna/VIB_10xmultiomerna_2__R2.FULL.fastq.gz 0.2828089820204866 | bgzip -@ 8 > libds_fastq_scrna/VIB_10xmultiomerna_2__R2.FULL.fastq.gz
+seqtk sample -s 111 full_fastq_scrna/SAN_10xmultiomerna_1__R1.FULL.fastq.gz 0.2294252069509287 | bgzip -@ 8 > libds_fastq_scrna/SAN_10xmultiomerna_1__R1.FULL.fastq.gz
+seqtk sample -s 111 full_fastq_scrna/SAN_10xmultiomerna_1__R2.FULL.fastq.gz 0.2294252069509287 | bgzip -@ 8 > libds_fastq_scrna/SAN_10xmultiomerna_1__R2.FULL.fastq.gz
+seqtk sample -s 111 full_fastq_scrna/SAN_10xmultiomerna_2__R1.FULL.fastq.gz 0.2317733186041545 | bgzip -@ 8 > libds_fastq_scrna/SAN_10xmultiomerna_2__R1.FULL.fastq.gz
+seqtk sample -s 111 full_fastq_scrna/SAN_10xmultiomerna_2__R2.FULL.fastq.gz 0.2317733186041545 | bgzip -@ 8 > libds_fastq_scrna/SAN_10xmultiomerna_2__R2.FULL.fastq.gz

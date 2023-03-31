@@ -1,0 +1,51 @@
+#cell_type_classification/BIO_ddseq_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/BIO_ddseq_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/BIO_ddseq_3.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/BIO_ddseq_4.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/BRO_mtscatac_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/BRO_mtscatac_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xmultiome_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xmultiome_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv11_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv11_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv11_3.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv11_4.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv11_5.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv2_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_10xv2_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_hydrop_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_hydrop_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_hydrop_3.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_mtscatac_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/CNA_mtscatac_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/EPF_hydrop_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/EPF_hydrop_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/EPF_hydrop_3.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/EPF_hydrop_4.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/HAR_ddseq_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/HAR_ddseq_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/MDC_mtscatac_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/MDC_mtscatac_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/OHS_s3atac_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/OHS_s3atac_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/SAN_10xmultiome_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/SAN_10xmultiome_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/STA_10xv11_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/STA_10xv11_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/TXG_10xv11_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/TXG_10xv2_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/TXG_10xv2_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/UCS_ddseq_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/UCS_ddseq_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xmultiome_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xmultiome_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xv1_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xv1_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xv2_1.FIXEDCELLS__cell_type_seurat.txt already exists!
+#cell_type_classification/VIB_10xv2_2.FIXEDCELLS__cell_type_seurat.txt already exists!
+Rscript ../0_resources/scripts/seurat_label_transfer_consensus.R VIB_hydrop_1.FIXEDCELLS cell_region_looms/VIB_hydrop_1.FIXEDCELLS__cto.scrublet0-4.fmx.singlets.loom ../1_data_repository/fixedcells_fragments/VIB_hydrop_1.FIXEDCELLS.fragments.tsv.gz ../0_resources/seurat_references/pbmc_ref.rds ../0_resources/seurat_references/granges_annotation.rds cell_type_classification/VIB_hydrop_1.FIXEDCELLS__cell_type_seurat.txt
+#cell_type_classification/VIB_hydrop_11.FIXEDCELLS__cell_type_seurat.txt already exists!
+Rscript ../0_resources/scripts/seurat_label_transfer_consensus.R VIB_hydrop_12.FIXEDCELLS cell_region_looms/VIB_hydrop_12.FIXEDCELLS__cto.scrublet0-4.fmx.singlets.loom ../1_data_repository/fixedcells_fragments/VIB_hydrop_12.FIXEDCELLS.fragments.tsv.gz ../0_resources/seurat_references/pbmc_ref.rds ../0_resources/seurat_references/granges_annotation.rds cell_type_classification/VIB_hydrop_12.FIXEDCELLS__cell_type_seurat.txt
+Rscript ../0_resources/scripts/seurat_label_transfer_consensus.R VIB_hydrop_2.FIXEDCELLS cell_region_looms/VIB_hydrop_2.FIXEDCELLS__cto.scrublet0-4.fmx.singlets.loom ../1_data_repository/fixedcells_fragments/VIB_hydrop_2.FIXEDCELLS.fragments.tsv.gz ../0_resources/seurat_references/pbmc_ref.rds ../0_resources/seurat_references/granges_annotation.rds cell_type_classification/VIB_hydrop_2.FIXEDCELLS__cell_type_seurat.txt
+Rscript ../0_resources/scripts/seurat_label_transfer_consensus.R VIB_hydrop_21.FIXEDCELLS cell_region_looms/VIB_hydrop_21.FIXEDCELLS__cto.scrublet0-4.fmx.singlets.loom ../1_data_repository/fixedcells_fragments/VIB_hydrop_21.FIXEDCELLS.fragments.tsv.gz ../0_resources/seurat_references/pbmc_ref.rds ../0_resources/seurat_references/granges_annotation.rds cell_type_classification/VIB_hydrop_21.FIXEDCELLS__cell_type_seurat.txt
+Rscript ../0_resources/scripts/seurat_label_transfer_consensus.R VIB_hydrop_22.FIXEDCELLS cell_region_looms/VIB_hydrop_22.FIXEDCELLS__cto.scrublet0-4.fmx.singlets.loom ../1_data_repository/fixedcells_fragments/VIB_hydrop_22.FIXEDCELLS.fragments.tsv.gz ../0_resources/seurat_references/pbmc_ref.rds ../0_resources/seurat_references/granges_annotation.rds cell_type_classification/VIB_hydrop_22.FIXEDCELLS__cell_type_seurat.txt

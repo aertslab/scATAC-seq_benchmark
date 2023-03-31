@@ -1,0 +1,8 @@
+zcat full_preprocessing_out/data/fragments/CNA_hydrop_1.fragments.tsv.gz | mawk '{ print $1 "\t" $2 "\t" $3 "\t" $4 "-1\t" $5}' | bgzip -@ 4 > full_preprocessing_out/data/fragments/CNA_hydrop_1.fragments.id.tsv.gz
+zcat full_preprocessing_out/data/fragments/CNA_hydrop_2.fragments.tsv.gz | mawk '{ print $1 "\t" $2 "\t" $3 "\t" $4 "-2\t" $5}' | bgzip -@ 4 > full_preprocessing_out/data/fragments/CNA_hydrop_2.fragments.id.tsv.gz
+zcat full_preprocessing_out/data/fragments/EPF_hydrop_1.fragments.tsv.gz | mawk '{ print $1 "\t" $2 "\t" $3 "\t" $4 "-1\t" $5}' | bgzip -@ 4 > full_preprocessing_out/data/fragments/EPF_hydrop_1.fragments.id.tsv.gz
+zcat full_preprocessing_out/data/fragments/EPF_hydrop_2.fragments.tsv.gz | mawk '{ print $1 "\t" $2 "\t" $3 "\t" $4 "-2\t" $5}' | bgzip -@ 4 > full_preprocessing_out/data/fragments/EPF_hydrop_2.fragments.id.tsv.gz
+zcat full_preprocessing_out/data/fragments/VIB_hydrop_11.fragments.tsv.gz | mawk '{ print $1 "\t" $2 "\t" $3 "\t" $4 "-1\t" $5}' | bgzip -@ 4 > full_preprocessing_out/data/fragments/VIB_hydrop_11.fragments.id.tsv.gz
+zcat full_preprocessing_out/data/fragments/VIB_hydrop_12.fragments.tsv.gz | mawk '{ print $1 "\t" $2 "\t" $3 "\t" $4 "-2\t" $5}' | bgzip -@ 4 > full_preprocessing_out/data/fragments/VIB_hydrop_12.fragments.id.tsv.gz
+zcat full_preprocessing_out/data/fragments/VIB_hydrop_21.fragments.tsv.gz | mawk '{ print $1 "\t" $2 "\t" $3 "\t" $4 "-1\t" $5}' | bgzip -@ 4 > full_preprocessing_out/data/fragments/VIB_hydrop_21.fragments.id.tsv.gz
+zcat full_preprocessing_out/data/fragments/VIB_hydrop_22.fragments.tsv.gz | mawk '{ print $1 "\t" $2 "\t" $3 "\t" $4 "-2\t" $5}' | bgzip -@ 4 > full_preprocessing_out/data/fragments/VIB_hydrop_22.fragments.id.tsv.gz
