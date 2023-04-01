@@ -31,9 +31,30 @@ scATAC-seq_benchmark
 ├── public_4_cistopic_consensus # cisTopic pre-processing in consensus peaks and calling master consensus peaks
 └── public_downsample_series # downsampling analysis on public mouse cortex data
 ```
+
+# How to interpret the directory structure
+1. As new experiments were performed, sequencing data was deposited in `1_data_repository/original_fastq`. Each sample's sequencing data was then merged to a maximum of 3 files (barcode read, and two mates) and deposited in `1_data_repository/full_fastq`.
+2. For each experiment, the full sequencing data was then aligned to the reference genome. Results are in `full_1_vsn_preprocessing`. Symlinks to `.bam` and `.fragments.tsv.gz` were placed in `1_data_repository/full_bams` and `1_data_repository/full_fragments`. We refer to VSN, as our pipeline [ATACflow](https://github.com/aertslab/ATACflow) at the time was still a spin-off of [VSN](https://github.com/vib-singlecell-nf/vsn-pipelines).
+3. For each sample, we then filtered true cell barcodes from noise barcodes in `full_2_cistopic`. This filtering was performed using thresholds on TSS enrichment and number of unique fragments.
+4. Since we then knew the number of cells present in each sample, we could downsample the full sequencing data to the same common read depth (40k reads/cell). This was performed using the notebook `1_data_repository/5_downsample_fastq.ipynb` and the downsampled FASTQs were deposited in `1_data_repository/libds_fastq`. `libds` stands for "library downsampled". For a long time, we then re-called cells in these FASTQ files and proceeded with analysis like this. For most samples, the number of cells called was very similar, but for some samples that were added later, there were large discrepancies. We were thus faced with a dilemma: either adapt our cell filtering algorithm so that for the new samples cell counts would be the same between full data and downsampled data, or simply take the list of filtered barcodes from the full data and re-do all the analysis on the downsampled data using this barcode list instead. We chose the latter approach. This new sampling strategy was then referred to as `fixedcells`, as the number and identity of cells was now fixed after identification in the full sequencing data.
+5. We then re-aligned the downsampled FASTQs to GRCh38 in `libds_1_vsn_preprocessing` and Jaccard-process those files in `fixedcells_1_vsn_preprocessing`, as we did not not need to realign the downsampled sequencing data after switching to the `fixedcells` cell filtering strategy.
+6. We performed cisTopic clustering, Freemuxlet donor assignment, Seurat cell type annotation and consensus peak calling in `fixedcells_2_cistopic`.
+7. We re-count each sample's fragments in its own consensus peak set, re-do Seurat cell type annotation, and do all further downstream analysis (such as DAR calling and motif enrichment analysis) based on these count matrices. FRIP scores are also calculated using each sample's specific consensus peaks. Freemuxlet donor assignment was re-taken from the first pass done in `fixedcells_2_cistopic` because it is a bam-level analysis and independent of consensus peaks. We also re-calculated new consensus peak sets for each sample, and aggregated each of these second-pass consensus peak sets into one master peak set.
+8. We recounted all fragments of all cells in all samples in the master peak set to generate a `fixedcells_merged` cisTopic object, and performed some analyses on the merged object in `fixedcells_4_merged`.
+9. In `fixedcells_5_cell_downsampling`, we performed some analyses to investigate the effect of number of cells on some metrics, mostly Seurat cell type assignment and DAR calling. In order to do this, we subsampled each of the 47 individual `fixedcells` cisTopic objects to 2500, 2000, 1500, ... cells.
+10. We attempted to do some analyses on the merged cisTopic object where each technology had the same number of cells (`fixedcells_6_merged_equalcells`), equal to the number of cells of the technology that had the least number of cells (s3-ATAC). However, at the same time, we were doing the downsampling analysis and saw that the number of cells *per cell type* also had an impact on the analysis... 
+11. So, in `fixedcells_7_merged_equalcells_celltypefair`, we did the same, but now we took the same number of cells for each cell type for each technology, and in `fixedcells_8_individual_tech_cistopic_objects`, we simply split this merged object into 8 objects, one for each tech.
+12. The same strategy was employed to create cisTopic objects for each technology that had the same number of cells for each cell type, but also from each donor within each cell type. Since s3-ATAC had so few cells compared to the rest, some concessions had to be made (the subsampling is done in `fixedcells_4_merged/9a_subset_malefemale.ipynb`, you can see the strategy used there).
+13. In `full_5_cellranger`, we realigned all the 10x scATAC-seq data using Cell Ranger. We also performed our comparison with VSN there, and calibrated the Seurat scores using the multiome. We then filtered cells, and re-aligned the downsampled multiome data in `fixedcells_cellranger_arc`, and analysed the results (Venn diagram and correlations between ATAC and RNA counts).
+14. In `fixedcells_downsample_series`, most of these analyses were performed on further read-downsampled data (35k, 30k, ... 5k reads/cell).
+15. In `public_*` directories, all the public data was analysed, including a read downsampled analysis.
+
 # Reproducing manuscript figures
+You can find our ATACflow pipeline in [its own repository](https://github.com/aertslab/ATACflow). This pipeline can be used to realign data from all techniques assessed here to the reference genome.  
+
 Here you can find where the code for each figure in the manuscript can be found:  
 
+**Main figures:**  
 1b: `general/fixedcells_merged_graphs.ipynb`  
 1d: `general/scatterplots_bytech_kde_v2.py`  
 1e-h: `general/fixedcells_boxplots.ipynb`  
@@ -51,7 +72,7 @@ Here you can find where the code for each figure in the manuscript can be found:
 3g: `fixedcells_4_merged/5b_LISI.ipynb`  
 3i: `fixedcells_4_merged/5b_LISI.ipynb`  
 
-Supplementary figures:  
+**Supplementary figures:**  
 S1a: `full_5_cellranger/2b_validation_graphs.ipynb`  
 S1b: `full_1_vsn_preprocessing/3_otsu_filtering.ipynb`  
 S2-S3: `full_3_cistopic_consensus/9_plot_all_qc.ipynb`  
@@ -77,3 +98,8 @@ S16: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`
 
 Supplementary files:  
 Supplementary table with quality control statistics: `general/fixedcells_general_statistics.ipynb`
+
+# Contributing authors
+All of these analyses were performed at the Stein Aerts lab by Florian De Rop, but they were largely based on a strong foundation laid by Christopher Flerin, who designed the initial analysis workflow. Gert Hulselmans also played a major role, as he designed [ATACflow](https://github.com/aertslab/ATACflow) (then still part of [VSN](https://github.com/vib-singlecell-nf/vsn-pipelines)) together with Christopher, and wrote most of the low-level scripts that work at the fragments and FASTQ level (calling `bwa-mem`, detecting and correcting barcodes, writing fragments files, calculating Jaccard indices, calling and speeding up Freemuxlet, subsampling BAM files, ...). This benchmark was supervised by Holger Heyn and Stein Aerts, who coordinated all work shown here and helped form major decisions at critical points.
+
+All work shown here was done with the highest regard for fairness and transparency. If you have any questions, suggestions or criticisms, please contact us or open a github issue.
