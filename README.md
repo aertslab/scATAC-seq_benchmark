@@ -96,7 +96,7 @@ S14: `1_data_repository/9_saturation_analysis.ipynb`
 S15: `fixedcells_3_cistopic_consensus/1b_count_fragments_in_blacklist.ipynb`  
 S16: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`
 
-Supplementary files:  
+**Supplementary files:**  
 Supplementary table with quality control statistics: `general/fixedcells_general_statistics.ipynb`
 
 # Contributing authors
