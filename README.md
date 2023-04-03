@@ -1,5 +1,5 @@
 # scATAC-seq Benchmark
-These are all the Jupyter notebooks and scripts that were used to analyse data and generate figures for our paper "Systematic benchmarking of scATAC-seq protocols" (De Rop et al., 2023). With these scripts, you should be able to reproduce everything found in our manuscript.
+These are all the Jupyter notebooks and scripts that were used to analyse data and generate figures for our paper "Systematic benchmarking of scATAC-seq protocols" (De Rop et al., 2023). With these scripts, and our pipeline [ATACflow](https://github.com/aertslab/atacflow), you should be able to reproduce everything found in our manuscript.
 
 ## Directory structure
 Here you can find the structure of the root directory, with descriptions of each subdirectory.
