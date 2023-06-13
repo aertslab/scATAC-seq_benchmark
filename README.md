@@ -1,5 +1,5 @@
 # scATAC-seq Benchmark
-These are all the Jupyter notebooks and scripts that were used to analyse data and generate figures for our paper "Systematic benchmarking of scATAC-seq protocols" (De Rop et al., 2023). With these scripts, and our pipeline [ATACflow](https://github.com/aertslab/atacflow), you should be able to reproduce everything found in our manuscript.
+These are all the Jupyter notebooks and scripts that were used to analyse data and generate figures for our paper "Systematic benchmarking of scATAC-seq protocols" (De Rop et al., 2023). With these scripts, and our pipeline [PUMATAC](https://github.com/aertslab/PUMATAC), you should be able to reproduce everything found in our manuscript.
 
 ## Directory structure
 Here you can find the structure of the root directory, with descriptions of each subdirectory.
@@ -22,7 +22,7 @@ scATAC-seq_benchmark
 ├── full_2_cistopic # cisTopic pre-processing in SCREEN regions and calling consensus peaks
 ├── full_3_cistopic_consensus # cisTopic pre-processing in consensus peaks and calling master consensus peaks
 ├── full_4_merged # cisTopic pre-processing of merged dataset (169k cells), using master consensus peaks
-├── full_5_cellranger # aligning full data to reference genome using cellranger, and validating ATACflow by comparing Cell Ranger and ATACflow outputs
+├── full_5_cellranger # aligning full data to reference genome using cellranger, and validating PUMATAC by comparing Cell Ranger and PUMATAC outputs
 ├── general # general, sample-wide plots and definitions
 ├── libds_1_vsn_preprocessing # aligning downsampled FASTQs to the reference genome
 ├── public_1_cistopic_qc # analysing fragments files from public repositories, not used in manuscript
@@ -34,7 +34,7 @@ scATAC-seq_benchmark
 
 # How to interpret the directory structure
 1. As new experiments were performed, sequencing data was deposited in `1_data_repository/original_fastq`. Each sample's sequencing data was then merged to a maximum of 3 files (barcode read, and two mates) and deposited in `1_data_repository/full_fastq`.
-2. For each experiment, the full sequencing data was then aligned to the reference genome. Results are in `full_1_vsn_preprocessing`. Symlinks to `.bam` and `.fragments.tsv.gz` were placed in `1_data_repository/full_bams` and `1_data_repository/full_fragments`. We refer to VSN, as our pipeline at the time was still a part of [VSN](https://github.com/vib-singlecell-nf/vsn-pipelines), but now has its own repository: [ATACflow](https://github.com/aertslab/ATACflow).
+2. For each experiment, the full sequencing data was then aligned to the reference genome. Results are in `full_1_vsn_preprocessing`. Symlinks to `.bam` and `.fragments.tsv.gz` were placed in `1_data_repository/full_bams` and `1_data_repository/full_fragments`. We refer to VSN, as our pipeline at the time was still a part of [VSN](https://github.com/vib-singlecell-nf/vsn-pipelines), but now has its own repository: [PUMATAC](https://github.com/aertslab/PUMATAC).
 3. For each sample, we then filtered true cell barcodes from noise barcodes in `full_2_cistopic`. This filtering was performed using thresholds on TSS enrichment and number of unique fragments.
 4. Since we then knew the number of cells present in each sample, we could downsample the full sequencing data to the same common read depth (40k reads/cell). This was performed using the notebook `1_data_repository/5_downsample_fastq.ipynb` and the downsampled FASTQs were deposited in `1_data_repository/libds_fastq`. `libds` stands for "library downsampled". For a long time, we then re-called cells in these FASTQ files and proceeded with analysis like this. For most samples, the number of cells called was very similar, but for some samples that were added later, there were large discrepancies, which strongly impacted the "reads per cell" depth. We were thus faced with a dilemma: either adapt our cell filtering algorithm so that for the new samples cell counts would be the same between full data and downsampled data, or simply take the list of filtered barcodes from the full data and re-do all the analysis on the downsampled data using this barcode list instead. We chose the latter approach. This new sampling strategy was then referred to as `fixedcells`, as the number and identity of cells was now fixed after identification in the full sequencing data.
 5. We then re-aligned the downsampled FASTQs to GRCh38 in `libds_1_vsn_preprocessing` and Jaccard-process those files in `fixedcells_1_vsn_preprocessing`, as we did not not need to realign the downsampled sequencing data after switching to the `fixedcells` cell filtering strategy.
@@ -50,7 +50,7 @@ scATAC-seq_benchmark
 15. In `public_*` directories, all the public data was analysed, including a read downsampled analysis.
 
 # Reproducing manuscript figures
-You can find our ATACflow pipeline in [its own repository](https://github.com/aertslab/ATACflow). This pipeline can be used to realign data from all techniques assessed here to the reference genome.  
+You can find PUMATAC in [its own repository](https://github.com/aertslab/PUMATAC). This pipeline can be used to realign data from all techniques assessed here to the reference genome.  
 
 Here you can find where the code for each figure in the manuscript can be found:  
 
@@ -100,6 +100,9 @@ S16: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`
 Supplementary table with quality control statistics: `general/fixedcells_general_statistics.ipynb`
 
 # Contributing authors
-All of these analyses were performed at the Stein Aerts lab by Florian De Rop, but they were largely based on a strong foundation laid by Christopher Flerin, who designed the initial analysis workflow. Gert Hulselmans also played a major role, as he designed [ATACflow](https://github.com/aertslab/ATACflow) (then still part of [VSN](https://github.com/vib-singlecell-nf/vsn-pipelines)) together with Christopher, and wrote most of the low-level scripts that work at the fragments and FASTQ level (calling `bwa-mem`, detecting and correcting barcodes, writing fragments files, calculating Jaccard indices, calling and speeding up Freemuxlet, subsampling BAM files, ...). This benchmark was supervised by Holger Heyn and Stein Aerts, who coordinated all work shown here and helped form major decisions at critical points.
+All of these analyses were performed at the Stein Aerts lab by Florian De Rop, but they were largely based on a strong foundation laid by Christopher Flerin, who designed the initial analysis workflow. Gert Hulselmans also played a major role, as he designed [PUMATAC](https://github.com/aertslab/PUMATAC) (then still part of [VSN](https://github.com/vib-singlecell-nf/vsn-pipelines)) together with Christopher, and wrote most of the low-level scripts that work at the fragments and FASTQ level (calling `bwa-mem`, detecting and correcting barcodes, writing fragments files, calculating Jaccard indices, calling and speeding up Freemuxlet, subsampling BAM files, ...). This benchmark was supervised by Holger Heyn and Stein Aerts, who coordinated all work shown here and helped form major decisions at critical points.
 
 All work shown here was done with the highest regard for fairness and transparency. If you have any questions, suggestions or criticisms, please contact us or open a github issue.
+
+# Citing this work
+Please cite our manuscript De Rop et al., 2023 in Nature Biotechnology if you our data, and cite our manuscript and the tools we used if you use our scripts.
