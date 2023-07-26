@@ -1,6 +1,57 @@
 # scATAC-seq Benchmark
 These are all the Jupyter notebooks and scripts that were used to analyse data and generate figures for our paper "Systematic benchmarking of scATAC-seq protocols" (De Rop et al., 2023). With these scripts, and our pipeline [PUMATAC](https://github.com/aertslab/PUMATAC), you should be able to reproduce everything found in our manuscript.
 
+# Reproducing manuscript figures
+You can find PUMATAC in [its own repository](https://github.com/aertslab/PUMATAC). This pipeline can be used to realign data from all techniques assessed here to the reference genome.  
+
+Here you can find where the code for each figure in the manuscript can be found:  
+
+**Main figures:**  
+1b: `general/fixedcells_merged_graphs.ipynb`  
+1d: `general/scatterplots_bytech_kde_v2.py`  
+1e-h: `general/fixedcells_boxplots.ipynb`  
+2a-e: `fixedcells_downsample_series/4c_qc_plots.ipynb`  
+2f-j: `general/fixedcells_general_statistics_scatterplots.ipynb`  
+2k-n: `general/fixedcells_boxplots.ipynb`  
+3a: `fixedcells_5_cell_downsampling/5b_DAR_scores.ipynb`  
+3b-c: `fixedcells_8_individual_tech_cistopic_objects/4b_dar_scores.ipynb`  
+3d: `fixedcells_7_merged_equalcells_celltypefair/4c_dar_traces.ipynb`  
+3e-f: `fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_samples.ipynb`  
+3g: `fixedcells_8_individual_tech_cistopic_objects/8b_cistarget_analysis.ipynb`  
+3h-i: `general/fixedcells_general_statistics_scatterplots.ipynb`  
+3j-k: `fixedcells_9_individual_malefemale_celltypefair/5a_analyse_malefemale.ipynb`  
+4a: `fixedcells_9_individual_malefemale_celltypefair/7b_male_female_tracks.ipynb`  
+4b: `fixedcells_4_merged/5b_LISI.ipynb`  
+4d: `fixedcells_4_merged/5b_LISI.ipynb`  
+
+**Extended Data Figures:**  
+ED1: `general/fixedcells_general_statistics_gameshowell.ipynb`  
+ED2: `full_3_cistopic_consensus/9_plot_all_qc.ipynb`  
+ED3: `full_4_merged/8_lisi.ipynb`  
+ED4b-c: `fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_samples.ipynb`  
+ED5a-b: `fixedcells_cellranger_arc/2_cell_filtering.ipynb`  
+ED5c: `fixedcells_cellranger_arc/3_venn.ipynb`  
+ED6a: `fixedcells_3_cistopic_consensus/3b_cell_type_analysis.ipynb`  
+ED6b: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`
+ED7a: `fixedcells_downsample_series/5b_seurat_celltypes.ipynb`  
+ED7b-c: `fixedcells_downsample_series/7b_DARs_analysis.ipynb`  
+ED8a: `fixedcells_5_cell_downsampling/3_seurat_celltypes.ipynb`  
+ED8b-c: `fixedcells_5_cell_downsampling/5b_DAR_scores.ipynb`  
+ED9: `public_downsample_series/5_analyse_qc.ipynb`  
+ED10: `1_data_repository/9_saturation_analysis.ipynb`  
+
+**Extended Data Figures:**  
+S1a: `full_5_cellranger/2b_validation_graphs.ipynb`  
+S1b: `fixedcells_3_cistopic_consensus/1b_count_fragments_in_blacklist.ipynb`  
+S1c: `full_1_vsn_preprocessing/3_otsu_filtering.ipynb`  
+S2a: `fixedcells_2_cistopic/2b_analyse_freemuxlet.ipynb`  
+S2b: `fixedcells_3_cistopic_consensus/0_deteremine_male_vs_female.ipynb`  
+S2c: `fixedcells_2_cistopic/2b_analyse_freemuxlet.ipynb`  
+S3: `fixedcells_7_merged_equalcells_celltypefair/4d_dar_carrot.ipynb`  
+
+**Supplementary files:**  
+Supplementary table with quality control statistics: `general/fixedcells_general_statistics.ipynb`
+
 ## Directory structure
 Here you can find the structure of the root directory, with descriptions of each subdirectory.
 ```
@@ -49,60 +100,9 @@ scATAC-seq_benchmark
 14. In `fixedcells_downsample_series`, most of these analyses were performed on further read-downsampled data (35k, 30k, ... 5k reads/cell).
 15. In `public_*` directories, all the public data was analysed, including a read downsampled analysis.
 
-# Reproducing manuscript figures
-You can find PUMATAC in [its own repository](https://github.com/aertslab/PUMATAC). This pipeline can be used to realign data from all techniques assessed here to the reference genome.  
-
-Here you can find where the code for each figure in the manuscript can be found:  
-
-**Main figures:**  
-1b: `general/fixedcells_merged_graphs.ipynb`  
-1d: `general/scatterplots_bytech_kde_v2.py`  
-1e-h: `general/fixedcells_boxplots.ipynb`  
-1i-m: `fixedcells_downsample_series/4c_qc_plots.ipynb`  
-2a-e: `general/fixedcells_general_statistics_scatterplots.ipynb`  
-2f-i: `general/fixedcells_boxplots.ipynb`  
-2j: `fixedcells_5_cell_downsampling/5b_DAR_scores.ipynb`  
-2k-l: `fixedcells_8_individual_tech_cistopic_objects/4b_dar_scores.ipynb`  
-2m: `fixedcells_7_merged_equalcells_celltypefair/4c_dar_traces.ipynb`  
-2n-o: `fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_samples.ipynb`  
-3a: `fixedcells_8_individual_tech_cistopic_objects/8b_cistarget_analysis.ipynb`  
-3b-c: `general/fixedcells_general_statistics_scatterplots.ipynb`  
-3d-e: `fixedcells_9_individual_malefemale_celltypefair/5a_analyse_malefemale.ipynb`  
-3f: `fixedcells_9_individual_malefemale_celltypefair/7b_male_female_tracks.ipynb`  
-3g: `fixedcells_4_merged/5b_LISI.ipynb`  
-3i: `fixedcells_4_merged/5b_LISI.ipynb`  
-
-**Supplementary figures:**  
-S1a: `full_5_cellranger/2b_validation_graphs.ipynb`  
-S1b: `full_1_vsn_preprocessing/3_otsu_filtering.ipynb`  
-S2-S3: `full_3_cistopic_consensus/9_plot_all_qc.ipynb`  
-S4a-b: `fixedcells_cellranger_arc/2_cell_filtering.ipynb`  
-S4c: `fixedcells_cellranger_arc/3_venn.ipynb`  
-S5a-i: `general/fixedcells_general_statistics_gameshowell.ipynb`  
-S6: `fixedcells_3_cistopic_consensus/3b_cell_type_analysis.ipynb`  
-S7a: `fixedcells_downsample_series/5b_seurat_celltypes.ipynb`  
-S7b-c: `fixedcells_downsample_series/7b_DARs_analysis.ipynb`  
-S8a: `fixedcells_5_cell_downsampling/3_seurat_celltypes.ipynb`  
-S8b-c: `fixedcells_5_cell_downsampling/5b_DAR_scores.ipynb`  
-S9: `fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_samples.ipynb`  
-S10: `fixedcells_7_merged_equalcells_celltypefair/4d_dar_carrot.ipynb`  
-S11a: `fixedcells_2_cistopic/2b_analyse_freemuxlet.ipynb`  
-S11b: `fixedcells_3_cistopic_consensus/0_deteremine_male_vs_female.ipynb`  
-S11c: `fixedcells_2_cistopic/2b_analyse_freemuxlet.ipynb`  
-S12a: `public_4_cistopic_consensus/2_plot_all_qc.ipynb`  
-S12b: `public_downsample_series/5_analyse_qc.ipynb`  
-S13a-b: `full_4_merged/8_lisi.ipynb`  
-S14: `1_data_repository/9_saturation_analysis.ipynb`  
-S15: `fixedcells_3_cistopic_consensus/1b_count_fragments_in_blacklist.ipynb`  
-S16: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`
-
-**Supplementary files:**  
-Supplementary table with quality control statistics: `general/fixedcells_general_statistics.ipynb`
-
 # Contributing authors
 All of these analyses were performed at the Stein Aerts lab by Florian De Rop, but they were largely based on a strong foundation laid by Christopher Flerin, who designed the initial analysis workflow. Gert Hulselmans also played a major role, as he designed [PUMATAC](https://github.com/aertslab/PUMATAC) (then still part of [VSN](https://github.com/vib-singlecell-nf/vsn-pipelines)) together with Christopher, and wrote most of the low-level scripts that work at the fragments and FASTQ level (calling `bwa-mem`, detecting and correcting barcodes, writing fragments files, calculating Jaccard indices, calling and speeding up Freemuxlet, subsampling BAM files, ...). This benchmark was supervised by Holger Heyn and Stein Aerts, who coordinated all work shown here and helped form major decisions at critical points.
-
 All work shown here was done with the highest regard for fairness and transparency. If you have any questions, suggestions or criticisms, please contact us or open a github issue.
 
 # Citing this work
-Please cite our manuscript De Rop et al., 2023 in Nature Biotechnology if you our data, and cite our manuscript and the tools we used if you use our scripts.
+Please cite our manuscript De Rop et al., 2023 in Nature Biotechnology if you use our data, and cite our manuscript and the tools we used if you use our scripts.
