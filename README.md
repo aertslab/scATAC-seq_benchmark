@@ -105,4 +105,4 @@ All of these analyses were performed at the Stein Aerts lab by Florian De Rop, b
 All work shown here was done with the highest regard for fairness and transparency. If you have any questions, suggestions or criticisms, please contact us or open a github issue.
 
 # Citing this work
-Please cite [De Rop, F.V., Hulselmans, G., Flerin, C. et al. Systematic benchmarking of single-cell ATAC-sequencing protocols. Nat Biotechnol (2023)](https://www.nature.com/articles/s41587-023-01881-x) if you use our data, and cite our manuscript and the tools we used if you use our scripts.
+Please cite [De Rop, F.V., Hulselmans, G., Flerin, C. et al. Systematic benchmarking of single-cell ATAC-sequencing protocols. Nat Biotechnol (2023)](https://www.nature.com/articles/s41587-023-01881-x) if you use our data, and cite our manuscript and [PUMATAC](https://doi.org/10.5281/zenodo.7764884) if you use our scripts.
