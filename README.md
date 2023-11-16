@@ -1,6 +1,57 @@
 # scATAC-seq Benchmark
 These are all the Jupyter notebooks and scripts that were used to analyse data and generate figures for our paper "Systematic benchmarking of scATAC-seq protocols" (De Rop et al., 2023). With these scripts, and our pipeline [PUMATAC](https://github.com/aertslab/PUMATAC), you should be able to reproduce everything found in our manuscript.
 
+# Reproducing manuscript figures
+You can find PUMATAC in [its own repository](https://github.com/aertslab/PUMATAC). This pipeline can be used to realign data from all techniques assessed here to the reference genome.  
+
+Here you can find where the code for each figure in the manuscript can be found:  
+
+**Main figures:**  
+1b: `general/fixedcells_merged_graphs.ipynb`  
+1d: `general/scatterplots_bytech_kde_v2.py`  
+1e-h: `general/fixedcells_boxplots.ipynb`  
+2a-e: `fixedcells_downsample_series/4c_qc_plots.ipynb`  
+2f-j: `general/fixedcells_general_statistics_scatterplots.ipynb`  
+2k-n: `general/fixedcells_boxplots.ipynb`  
+3a: `fixedcells_5_cell_downsampling/5b_DAR_scores.ipynb`  
+3b-c: `fixedcells_8_individual_tech_cistopic_objects/4b_dar_scores.ipynb`  
+3d: `fixedcells_7_merged_equalcells_celltypefair/4c_dar_traces.ipynb`  
+3e-f: `fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_samples.ipynb`  
+3g: `fixedcells_8_individual_tech_cistopic_objects/8b_cistarget_analysis.ipynb`  
+3h-i: `general/fixedcells_general_statistics_scatterplots.ipynb`  
+3j-k: `fixedcells_9_individual_malefemale_celltypefair/5a_analyse_malefemale.ipynb`  
+4a: `fixedcells_9_individual_malefemale_celltypefair/7b_male_female_tracks.ipynb`  
+4b: `fixedcells_4_merged/5b_LISI.ipynb`  
+4d: `fixedcells_4_merged/5b_LISI.ipynb`  
+
+**Extended Data Figures:**  
+ED1: `general/fixedcells_general_statistics_gameshowell.ipynb`  
+ED2: `full_3_cistopic_consensus/9_plot_all_qc.ipynb`  
+ED3: `full_4_merged/8_lisi.ipynb`  
+ED4b-c: `fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_samples.ipynb`  
+ED5a-b: `fixedcells_cellranger_arc/2_cell_filtering.ipynb`  
+ED5c: `fixedcells_cellranger_arc/3_venn.ipynb`  
+ED6a: `fixedcells_3_cistopic_consensus/3b_cell_type_analysis.ipynb`  
+ED6b: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`
+ED7a: `fixedcells_downsample_series/5b_seurat_celltypes.ipynb`  
+ED7b-c: `fixedcells_downsample_series/7b_DARs_analysis.ipynb`  
+ED8a: `fixedcells_5_cell_downsampling/3_seurat_celltypes.ipynb`  
+ED8b-c: `fixedcells_5_cell_downsampling/5b_DAR_scores.ipynb`  
+ED9: `public_downsample_series/5_analyse_qc.ipynb`  
+ED10: `1_data_repository/9_saturation_analysis.ipynb`  
+
+**Supplementary Figures:**  
+S1a: `full_5_cellranger/2b_validation_graphs.ipynb`  
+S1b: `fixedcells_3_cistopic_consensus/1b_count_fragments_in_blacklist.ipynb`  
+S1c: `full_1_vsn_preprocessing/3_otsu_filtering.ipynb`  
+S2a: `fixedcells_2_cistopic/2b_analyse_freemuxlet.ipynb`  
+S2b: `fixedcells_3_cistopic_consensus/0_deteremine_male_vs_female.ipynb`  
+S2c: `fixedcells_2_cistopic/2b_analyse_freemuxlet.ipynb`  
+S3: `fixedcells_7_merged_equalcells_celltypefair/4d_dar_carrot.ipynb`  
+
+**Supplementary files:**  
+Supplementary table with quality control statistics: `general/fixedcells_general_statistics.ipynb`
+
 ## Directory structure
 Here you can find the structure of the root directory, with descriptions of each subdirectory.
 ```
@@ -37,9 +88,9 @@ scATAC-seq_benchmark
 2. For each experiment, the full sequencing data was then aligned to the reference genome. Results are in `full_1_vsn_preprocessing`. Symlinks to `.bam` and `.fragments.tsv.gz` were placed in `1_data_repository/full_bams` and `1_data_repository/full_fragments`. We refer to VSN, as our pipeline at the time was still a part of [VSN](https://github.com/vib-singlecell-nf/vsn-pipelines), but now has its own repository: [PUMATAC](https://github.com/aertslab/PUMATAC).
 3. For each sample, we then filtered true cell barcodes from noise barcodes in `full_2_cistopic`. This filtering was performed using thresholds on TSS enrichment and number of unique fragments.
 4. Since we then knew the number of cells present in each sample, we could downsample the full sequencing data to the same common read depth (40k reads/cell). This was performed using the notebook `1_data_repository/5_downsample_fastq.ipynb` and the downsampled FASTQs were deposited in `1_data_repository/libds_fastq`. `libds` stands for "library downsampled". For a long time, we then re-called cells in these FASTQ files and proceeded with analysis like this. For most samples, the number of cells called was very similar, but for some samples that were added later, there were large discrepancies, which strongly impacted the "reads per cell" depth. We were thus faced with a dilemma: either adapt our cell filtering algorithm so that for the new samples cell counts would be the same between full data and downsampled data, or simply take the list of filtered barcodes from the full data and re-do all the analysis on the downsampled data using this barcode list instead. We chose the latter approach. This new sampling strategy was then referred to as `fixedcells`, as the number and identity of cells was now fixed after identification in the full sequencing data.
-5. We then re-aligned the downsampled FASTQs to GRCh38 in `libds_1_vsn_preprocessing` and Jaccard-process those files in `fixedcells_1_vsn_preprocessing`, as we did not not need to realign the downsampled sequencing data after switching to the `fixedcells` cell filtering strategy.
+5. We then re-aligned the downsampled FASTQs to GRCh38 in `libds_1_vsn_preprocessing` and Jaccard-process those files in `fixedcells_1_vsn_preprocessing`. This switch of directories is done because We did not not need to realign the downsampled sequencing data after switching to the `fixedcells` cell filtering strategy.
 6. We performed cisTopic clustering, Freemuxlet donor assignment, Seurat cell type annotation and consensus peak calling in `fixedcells_2_cistopic`.
-7. We re-count each sample's fragments in its own consensus peak set, re-do Seurat cell type annotation, and do all further downstream analysis (such as DAR calling and motif enrichment analysis) based on these count matrices. FRIP scores are also calculated using each sample's specific consensus peaks. Freemuxlet donor assignment was re-taken from the first pass done in `fixedcells_2_cistopic` because it is a bam-level analysis and independent of consensus peaks. We also re-calculated new consensus peak sets for each sample, and aggregated each of these second-pass consensus peak sets into one master peak set.
+7. We re-count each sample's fragments in its own consensus peak set, re-do Seurat cell type annotation in `fixedcells_3_cistopic_consensus`, and do all further downstream analysis (such as DAR calling and motif enrichment analysis) based on these count matrices. FRIP scores are also calculated using each sample's specific consensus peaks. Freemuxlet donor assignment was re-taken from the first pass done in `fixedcells_2_cistopic` because it is a bam-level analysis and independent of consensus peaks. We also re-calculated new consensus peak sets for each sample, and aggregated each of these second-pass consensus peak sets into one master peak set.
 8. We recounted all fragments of all cells in all samples in the master peak set to generate a `fixedcells_merged` cisTopic object, and performed some analyses on the merged object in `fixedcells_4_merged`.
 9. In `fixedcells_5_cell_downsampling`, we performed some analyses to investigate the effect of number of cells on some metrics, mostly Seurat cell type assignment and DAR calling. In order to do this, we subsampled each of the 47 individual `fixedcells` cisTopic objects to 2500, 2000, 1500, ... cells.
 10. We attempted to do some analyses on the merged cisTopic object where each technology had the same number of cells (`fixedcells_6_merged_equalcells`), equal to the number of cells of the technology that had the least number of cells (s3-ATAC). However, at the same time, we were doing the downsampling analysis and saw that the number of cells *per cell type* also had an impact on the analysis... 
@@ -49,60 +100,9 @@ scATAC-seq_benchmark
 14. In `fixedcells_downsample_series`, most of these analyses were performed on further read-downsampled data (35k, 30k, ... 5k reads/cell).
 15. In `public_*` directories, all the public data was analysed, including a read downsampled analysis.
 
-# Reproducing manuscript figures
-You can find PUMATAC in [its own repository](https://github.com/aertslab/PUMATAC). This pipeline can be used to realign data from all techniques assessed here to the reference genome.  
-
-Here you can find where the code for each figure in the manuscript can be found:  
-
-**Main figures:**  
-1b: `general/fixedcells_merged_graphs.ipynb`  
-1d: `general/scatterplots_bytech_kde_v2.py`  
-1e-h: `general/fixedcells_boxplots.ipynb`  
-1i-m: `fixedcells_downsample_series/4c_qc_plots.ipynb`  
-2a-e: `general/fixedcells_general_statistics_scatterplots.ipynb`  
-2f-i: `general/fixedcells_boxplots.ipynb`  
-2j: `fixedcells_5_cell_downsampling/5b_DAR_scores.ipynb`  
-2k-l: `fixedcells_8_individual_tech_cistopic_objects/4b_dar_scores.ipynb`  
-2m: `fixedcells_7_merged_equalcells_celltypefair/4c_dar_traces.ipynb`  
-2n-o: `fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_samples.ipynb`  
-3a: `fixedcells_8_individual_tech_cistopic_objects/8b_cistarget_analysis.ipynb`  
-3b-c: `general/fixedcells_general_statistics_scatterplots.ipynb`  
-3d-e: `fixedcells_9_individual_malefemale_celltypefair/5a_analyse_malefemale.ipynb`  
-3f: `fixedcells_9_individual_malefemale_celltypefair/7b_male_female_tracks.ipynb`  
-3g: `fixedcells_4_merged/5b_LISI.ipynb`  
-3i: `fixedcells_4_merged/5b_LISI.ipynb`  
-
-**Supplementary figures:**  
-S1a: `full_5_cellranger/2b_validation_graphs.ipynb`  
-S1b: `full_1_vsn_preprocessing/3_otsu_filtering.ipynb`  
-S2-S3: `full_3_cistopic_consensus/9_plot_all_qc.ipynb`  
-S4a-b: `fixedcells_cellranger_arc/2_cell_filtering.ipynb`  
-S4c: `fixedcells_cellranger_arc/3_venn.ipynb`  
-S5a-i: `general/fixedcells_general_statistics_gameshowell.ipynb`  
-S6: `fixedcells_3_cistopic_consensus/3b_cell_type_analysis.ipynb`  
-S7a: `fixedcells_downsample_series/5b_seurat_celltypes.ipynb`  
-S7b-c: `fixedcells_downsample_series/7b_DARs_analysis.ipynb`  
-S8a: `fixedcells_5_cell_downsampling/3_seurat_celltypes.ipynb`  
-S8b-c: `fixedcells_5_cell_downsampling/5b_DAR_scores.ipynb`  
-S9: `fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_samples.ipynb`  
-S10: `fixedcells_7_merged_equalcells_celltypefair/4d_dar_carrot.ipynb`  
-S11a: `fixedcells_2_cistopic/2b_analyse_freemuxlet.ipynb`  
-S11b: `fixedcells_3_cistopic_consensus/0_deteremine_male_vs_female.ipynb`  
-S11c: `fixedcells_2_cistopic/2b_analyse_freemuxlet.ipynb`  
-S12a: `public_4_cistopic_consensus/2_plot_all_qc.ipynb`  
-S12b: `public_downsample_series/5_analyse_qc.ipynb`  
-S13a-b: `full_4_merged/8_lisi.ipynb`  
-S14: `1_data_repository/9_saturation_analysis.ipynb`  
-S15: `fixedcells_3_cistopic_consensus/1b_count_fragments_in_blacklist.ipynb`  
-S16: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`
-
-**Supplementary files:**  
-Supplementary table with quality control statistics: `general/fixedcells_general_statistics.ipynb`
-
 # Contributing authors
 All of these analyses were performed at the Stein Aerts lab by Florian De Rop, but they were largely based on a strong foundation laid by Christopher Flerin, who designed the initial analysis workflow. Gert Hulselmans also played a major role, as he designed [PUMATAC](https://github.com/aertslab/PUMATAC) (then still part of [VSN](https://github.com/vib-singlecell-nf/vsn-pipelines)) together with Christopher, and wrote most of the low-level scripts that work at the fragments and FASTQ level (calling `bwa-mem`, detecting and correcting barcodes, writing fragments files, calculating Jaccard indices, calling and speeding up Freemuxlet, subsampling BAM files, ...). This benchmark was supervised by Holger Heyn and Stein Aerts, who coordinated all work shown here and helped form major decisions at critical points.
-
 All work shown here was done with the highest regard for fairness and transparency. If you have any questions, suggestions or criticisms, please contact us or open a github issue.
 
 # Citing this work
-Please cite our manuscript De Rop et al., 2023 in Nature Biotechnology if you our data, and cite our manuscript and the tools we used if you use our scripts.
+Please cite [De Rop, F.V., Hulselmans, G., Flerin, C. et al. Systematic benchmarking of single-cell ATAC-sequencing protocols. Nat Biotechnol (2023)](https://www.nature.com/articles/s41587-023-01881-x) if you use our data, and cite our manuscript and [PUMATAC](https://doi.org/10.5281/zenodo.7764884) if you use our scripts.
