@@ -1,6 +1,9 @@
 # scATAC-seq Benchmark
 These are all the Jupyter notebooks and scripts that were used to analyse data and generate figures for our paper "Systematic benchmarking of scATAC-seq protocols" (De Rop et al., 2023). With these scripts, and our pipeline [PUMATAC](https://github.com/aertslab/PUMATAC), you should be able to reproduce everything found in our manuscript.
 
+# Citing this work
+Please cite [De Rop, F.V., Hulselmans, G., Flerin, C. et al. Systematic benchmarking of single-cell ATAC-sequencing protocols. Nat Biotechnol (2023)](https://www.nature.com/articles/s41587-023-01881-x) if you use our data, and cite our manuscript and [PUMATAC](https://doi.org/10.5281/zenodo.7764884) if you use our scripts.
+
 # Reproducing manuscript figures
 You can find PUMATAC in [its own repository](https://github.com/aertslab/PUMATAC). This pipeline can be used to realign data from all techniques assessed here to the reference genome.  
 
@@ -103,6 +106,3 @@ scATAC-seq_benchmark
 # Contributing authors
 All of these analyses were performed at the Stein Aerts lab by Florian De Rop, but they were largely based on a strong foundation laid by Christopher Flerin, who designed the initial analysis workflow. Gert Hulselmans also played a major role, as he designed [PUMATAC](https://github.com/aertslab/PUMATAC) (then still part of [VSN](https://github.com/vib-singlecell-nf/vsn-pipelines)) together with Christopher, and wrote most of the low-level scripts that work at the fragments and FASTQ level (calling `bwa-mem`, detecting and correcting barcodes, writing fragments files, calculating Jaccard indices, calling and speeding up Freemuxlet, subsampling BAM files, ...). This benchmark was supervised by Holger Heyn and Stein Aerts, who coordinated all work shown here and helped form major decisions at critical points.
 All work shown here was done with the highest regard for fairness and transparency. If you have any questions, suggestions or criticisms, please contact us or open a github issue.
-
-# Citing this work
-Please cite [De Rop, F.V., Hulselmans, G., Flerin, C. et al. Systematic benchmarking of single-cell ATAC-sequencing protocols. Nat Biotechnol (2023)](https://www.nature.com/articles/s41587-023-01881-x) if you use our data, and cite our manuscript and [PUMATAC](https://doi.org/10.5281/zenodo.7764884) if you use our scripts.
