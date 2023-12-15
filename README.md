@@ -32,7 +32,7 @@ ED4b-c: `fixedcells_8_individual_tech_cistopic_objects/7_peak_dar_overlap_sample
 ED5a-b: `fixedcells_cellranger_arc/2_cell_filtering.ipynb`  
 ED5c: `fixedcells_cellranger_arc/3_venn.ipynb`  
 ED6a: `fixedcells_3_cistopic_consensus/3b_cell_type_analysis.ipynb`  
-ED6b: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`
+ED6b: `full_5_cellranger/5_compare_rna_atac_seurat.ipynb`  
 ED7a: `fixedcells_downsample_series/5b_seurat_celltypes.ipynb`  
 ED7b-c: `fixedcells_downsample_series/7b_DARs_analysis.ipynb`  
 ED8a: `fixedcells_5_cell_downsampling/3_seurat_celltypes.ipynb`  
